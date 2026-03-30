@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Between Seasons</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display:ital@0;1&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div id="loader">
+  <div class="loader-content">
+    <div class="loader-circle"></div>
+    <p>Waiting for the seasons...</p>
+  </div>
+</div>
+  <div id="custom-cursor"></div>
+  <!-- ========== INTRO SCREEN ========== -->
+  <div id="intro">
+    <img src="img/sun.png" class="intro-sun" />
+    <img src="img/moon.png" class="intro-moon" />
+
+    <div class="clouds">
+      <div class="cloud c1"></div>
+      <div class="cloud c2"></div>
+      <div class="cloud c3"></div>
+      <div class="cloud c4"></div>
+      <div class="cloud c5"></div>
+    </div>
+
+    <div class="birds">
+      <svg class="bird b1" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+        <path class="wing-left"  d="M20 10 Q10 2 0 8"  fill="none" stroke="rgba(60,60,80,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+        <path class="wing-right" d="M20 10 Q30 2 40 8" fill="none" stroke="rgba(60,60,80,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <svg class="bird b2" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+        <path class="wing-left"  d="M20 10 Q10 2 0 8"  fill="none" stroke="rgba(60,60,80,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+        <path class="wing-right" d="M20 10 Q30 2 40 8" fill="none" stroke="rgba(60,60,80,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <svg class="bird b3" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+        <path class="wing-left"  d="M20 10 Q10 2 0 8"  fill="none" stroke="rgba(60,60,80,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+        <path class="wing-right" d="M20 10 Q30 2 40 8" fill="none" stroke="rgba(60,60,80,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <svg class="bird b4" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+        <path class="wing-left"  d="M20 10 Q10 2 0 8"  fill="none" stroke="rgba(60,60,80,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+        <path class="wing-right" d="M20 10 Q30 2 40 8" fill="none" stroke="rgba(60,60,80,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="intro-stars" id="intro-stars"></div>
+
+    <div class="intro-content">
+      <p class="intro-sub">a poem by Minh Khoa</p>
+      <h1 class="intro-title">Between<br/>Seasons</h1>
+      <p class="intro-desc">Two souls. One world. Different moments.</p>
+      <button id="begin-btn">Begin</button>
+    </div>
+  </div>
+
+  <!-- ========== MAIN PAGE ========== -->
+  <main id="main-page" class="hidden">
+
+    <!-- Controls -->
+    <div class="top-controls">
+      <button id="sound-btn" class="control-btn" title="Toggle sound">♪</button>
+      <button id="restart-btn" class="control-btn" title="Restart">↺</button>
+    </div>
+
+    <!-- Red thread canvas -->
+    <canvas id="thread-canvas"></canvas>
+
+    <!-- ===== SECTION 1: DAWN FIELD ===== -->
+    <section class="poem-section" id="s1">
+      <div class="flower-btn" id="flower-btn">
+        <img src="img/flower.png" class="flower-img" />
+         <div class="flower-hint">Touch me</div>
+      </div>
+      <div class="section-bg" id="bg1"></div>
+
+      <!-- Chữ thơ nổi -->
+      <div class="poem-float" id="p1">
+        <p class="line-float lf0">I wore your body like a borrowed coat,</p>
+        <p class="line-float lf1">walked through fields you must have loved before.</p>
+        <p class="line-float lf2">The grass remembered something in my step,</p>
+        <p class="line-float lf3">as if the earth had felt you here before.</p>
+      </div>
+      <div class="scroll-hint">
+        <span>scroll to explore more</span>
+        <div class="arrow"></div>
+      </div>
+    </section>
+
+   <!-- ===== SECTION 2: RAIN ===== -->
+<section class="poem-section" id="s2">
+  <div class="section-bg" id="bg2"></div>
+  <div class="rain-wrap" id="rain-wrap"></div>
+
+  <!-- 2 bàn tay từ trên xuống -->
+  <div class="hands-s2">
+  <img src="img/hands.png" class="hands-together" />
+  </div>
+
+  <!-- Chữ thơ hiện khi 2 tay chạm -->
+ <div class="poem-float poem-s2 fade-block" id="p2">
+    <p class="line-float-s2 lfs2-0">I touched the rain the way you touched the rain.</p>
+    <p class="line-float-s2 lfs2-1">Same drops. Same sky. But not the same hands.</p>
+    <p class="line-float-s2 lfs2-2">Somewhere you're standing in my morning light,</p>
+    <p class="line-float-s2 lfs2-3">learning the weight of a name you don't understand.</p>
+  </div>
+
+  <!-- Hint -->
+  <p class="s2-hint" id="s2-hint">touch the hands</p>
+</section>
+    <!-- ===== SECTION 3: RIVER NIGHT ===== -->
+    <section class="poem-section" id="s3">
+  <div class="section-bg" id="bg3"></div>
+
+  <!-- Thuyền giấy -->
+  <div class="boat-wrap" id="boat-wrap">
+    <img src="img/boat.png" class="boat" id="boat-s3"/>
+  </div>
+
+  <!-- Chữ thơ -->
+ <div class="poem-float poem-s3 fade-block" id="p3">
+    <p class="line-float-s3">The flowers don't know which of us to face.</p>
+    <p class="line-float-s3">The river carries both our reflections downstream.</p>
+    <p class="line-float-s3">I leave you notes inside the folded leaves,</p>
+    <p class="line-float-s3">you'll find them in a season I'll never see.</p>
+  </div>
+</section>
+
+    <!-- ===== SECTION 4: DEEP NIGHT ===== -->
+<section class="poem-section" id="s4">
+  <div class="section-bg" id="bg4"></div>
+  <div class="stars-wrap" id="stars-wrap"></div>
+  
+  <!-- Sao băng  -->
+  <canvas id="comet-canvas"></canvas>
+
+  <!-- Chữ thơ -->
+<div class="poem-float poem-s4 fade-block" id="p4">
+    <p class="line-float-s4">By the time you read the sky I've read,</p>
+    <p class="line-float-s4">the stars will have shifted just enough.</p>
+    <p class="line-float-s4">We share a world but not a moment in it,</p>
+    <p class="line-float-s4">and love, it seems, was never quite enough.</p>
+  </div>
+
+  <p class="s4-hint" id="s4-hint">catch a shooting star</p>
+</section>
+    <!-- ===== ENDING ===== -->
+    <footer id="ending">
+      <h2 class="ending-title">Between Seasons</h2>
+      <p class="ending-author">— Minh Khoa —</p>
+    </footer>
+
+  </main>
+
+<audio id="audio-wind"   loop><source src="music/wind.mp3"  type="audio/mpeg"/></audio>
+<audio id="audio-rain"   loop><source src="music/rain.mp3"  type="audio/mpeg"/></audio>
+<audio id="audio-river"  loop><source src="music/river.mp3" type="audio/mpeg"/></audio>
+<audio id="audio-night"  loop><source src="music/night.mp3" type="audio/mpeg"/></audio>
+  <script src="script.js"></script>
+</body>
+</html>
